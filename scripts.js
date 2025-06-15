@@ -1,7 +1,5 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibW9ja3VzZXIiLCJhIjoiY2s4dmI3bGoyMDBuazNsbnpqM3l4cmZndCJ9.JV7XDl7fgcl8dhFOS4aQ5g';
 
-
-
 const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/dark-v10',
@@ -9,7 +7,6 @@ const map = new mapboxgl.Map({
   zoom: 1.5
 });
 
-let markers = [];
 let playing = false;
 
 window.togglePlayback = function () {
