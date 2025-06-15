@@ -1,5 +1,5 @@
+mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibW9ja3VzZXIiLCJhIjoiY2tzc2UyYmIwMDFrdzJ3cDk3ZWh5ZW12dyJ9.q_wb2tNyj5OqEQaBvC-GkA';
 const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/dark-v10',
@@ -10,7 +10,7 @@ const map = new mapboxgl.Map({
 let markers = [];
 let playing = false;
 
-function togglePlayback() {
+window.togglePlayback = function () {
   if (playing) {
     clearMarkers();
     playing = false;
@@ -18,7 +18,7 @@ function togglePlayback() {
     loadEarthquakes();
     playing = true;
   }
-}
+};
 
 function loadEarthquakes() {
   fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson')
@@ -37,7 +37,6 @@ function loadEarthquakes() {
           new mapboxgl.Marker(el)
             .setLngLat([coords[0], coords[1]])
             .addTo(map);
-          markers.push(el);
         }, i * 300);
       });
     });
@@ -45,5 +44,4 @@ function loadEarthquakes() {
 
 function clearMarkers() {
   document.querySelectorAll('.mapboxgl-marker').forEach(m => m.remove());
-  markers = [];
 }
