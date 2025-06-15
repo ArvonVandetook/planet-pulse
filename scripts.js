@@ -12,6 +12,8 @@ let markers = [];
 let playing = false;
 
 window.togglePlayback = function () {
+  console.log("Button was clicked!");
+
   if (playing) {
     clearMarkers();
     playing = false;
