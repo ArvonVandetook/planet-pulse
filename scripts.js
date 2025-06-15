@@ -1,4 +1,5 @@
-mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+mapboxgl.accessToken = 'pk.eyJ1IjoibW9ja3VzZXIiLCJhIjoiY2tzc2UyYmIwMDFrdzJ3cDk3ZWh5ZW12dyJ9.q_wb2tNyj5OqEQaBvC-GkA';
+
 
 const map = new mapboxgl.Map({
   container: 'map',
