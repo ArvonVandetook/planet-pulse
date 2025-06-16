@@ -1,6 +1,6 @@
 console.log("Mapbox loading...");
 
-const token = 'sk.eyJ1IjoicGluY2hlZ3VydSIsImEiOiJjbWJ5aWQ4NDIxbTBuMnhwdWRrcGVoeHB4In0.d0NaznpIgRCEoyXGNxWFNg';
+const token = 'pk.eyJ1IjoicGluY2hlZ3VydSIsImEiOiJjbWJ5ajczcWExZDdhMnFuMW9kOTFtaWRjIn0.570DDbl4VeSZDM2UCjw0AQ';
 mapboxgl.accessToken = token;
 
 const map = new mapboxgl.Map({
