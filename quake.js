@@ -1,7 +1,7 @@
 
 console.log("Mapbox loading...");
 
-mapboxgl.accessToken = 'YOUR_PUBLIC_MAPBOX_TOKEN';
+mapboxgl.accessToken = 'pk.eyJ1IjoicGluY2hlZ3VydSIsImEiOiJjbWJ5ajczcWExZDdhMnFuMW9kOTFtaWRjIn0.570DDbl4VeSZDM2UCjw0AQ';
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v10',
