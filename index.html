@@ -1,19 +1,30 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Planet Pulse - Earthquake Map</title>
-  <link href="style.css" rel="stylesheet" />
-  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <title>Planet Pulse - Seismic Activity</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="controls">
-    <button onclick="togglePlayback()">⏯ Play/Pause</button>
-  </div>
-  <div id="map"></div>
-  <script src="quake.js" defer></script>
-
+    <div id="controls">
+        <label>Start Date: <input type="date" id="startDate"></label>
+        <label>End Date: <input type="date" id="endDate"></label>
+        <label>Speed:
+            <select id="speed">
+                <option value="1">1x</option>
+                <option value="1.5">1.5x</option>
+                <option value="2">2x</option>
+                <option value="3">3x</option>
+            </select>
+        </label>
+        <input type="range" id="timeSlider" min="0" max="100" value="0" />
+        <button id="playPause">▶ Play</button>
+    </div>
+    <div id="map"></div>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <script src="quake.js"></script>
 </body>
 </html>

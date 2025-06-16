@@ -1,52 +1,21 @@
+
 console.log("Mapbox loading...");
 
-const token = 'pk.eyJ1IjoicGluY2hlZ3VydSIsImEiOiJjbWJ5ajczcWExZDdhMnFuMW9kOTFtaWRjIn0.570DDbl4VeSZDM2UCjw0AQ';
-mapboxgl.accessToken = token;
-
+mapboxgl.accessToken = 'YOUR_PUBLIC_MAPBOX_TOKEN';
 const map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/mapbox/dark-v10',
-  center: [0, 20],
-  zoom: 1.5
+    container: 'map',
+    style: 'mapbox://styles/mapbox/dark-v10',
+    center: [0, 20],
+    zoom: 1.5
 });
 
+let isPlaying = false;
+const playPauseButton = document.getElementById("playPause");
+playPauseButton.addEventListener("click", () => {
+    isPlaying = !isPlaying;
+    playPauseButton.textContent = isPlaying ? "❚❚ Pause" : "▶ Play";
+});
 
-let playing = false;
-
-window.togglePlayback = function () {
-  console.log("Button was clicked!");
-
-  if (playing) {
-    clearMarkers();
-    playing = false;
-  } else {
-    loadEarthquakes();
-    playing = true;
-  }
-};
-
-function loadEarthquakes() {
-  fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson')
-    .then(res => res.json())
-    .then(data => {
-      data.features.forEach((quake, i) => {
-        setTimeout(() => {
-          const coords = quake.geometry.coordinates;
-          const mag = quake.properties.mag;
-          const el = document.createElement('div');
-          el.style.width = `${mag * 4}px`;
-          el.style.height = `${mag * 4}px`;
-          el.style.background = 'rgba(255,100,0,0.7)';
-          el.style.borderRadius = '50%';
-          el.style.boxShadow = '0 0 12px 3px rgba(255,100,0,0.5)';
-          new mapboxgl.Marker(el)
-            .setLngLat([coords[0], coords[1]])
-            .addTo(map);
-        }, i * 300);
-      });
-    });
-}
-
-function clearMarkers() {
-  document.querySelectorAll('.mapboxgl-marker').forEach(m => m.remove());
-}
+document.getElementById("timeSlider").addEventListener("input", (e) => {
+    console.log("Slider moved to:", e.target.value);
+});
