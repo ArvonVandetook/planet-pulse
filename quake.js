@@ -1,4 +1,7 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoibW9ja3VzZXIiLCJhIjoiY2s4dmI3bGoyMDBuazNsbnpqM3l4cmZndCJ9.JV7XDl7fgcl8dhFOS4aQ5g';
+console.log("Mapbox loading...");
+
+const token = 'pk.eyJ1IjoibW9ja3VzZXIiLCJhIjoiY2s4dmI3bGoyMDBuazNsbnpqM3l4cmZndCJ9.JV7XDl7fgcl8dhFOS4aQ5g';
+mapboxgl.accessToken = token;
 
 const map = new mapboxgl.Map({
   container: 'map',
@@ -6,6 +9,7 @@ const map = new mapboxgl.Map({
   center: [0, 20],
   zoom: 1.5
 });
+
 
 let playing = false;
 
